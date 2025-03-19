@@ -1,0 +1,57 @@
+{
+  "name": "Microsoft OneDrive",
+  "slug": "onedrive",
+  "rating": 4.6,
+  "order": 3,
+  "url": "https://onedrive.live.com",
+  "logo": "/logos/onedrive.svg",
+  "reviews": [
+    {
+      "user": "Павел",
+      "rating": 5,
+      "comment": "Отличная интеграция с Microsoft Office и Windows. Идеально для работы с документами.",
+      "date": "2024-02-21"
+    },
+    {
+      "user": "Ольга",
+      "rating": 4,
+      "comment": "Удобно работать с Office документами онлайн. Хорошая синхронизация между устройствами.",
+      "date": "2024-02-19"
+    }
+  ],
+  "pricing": {
+    "free_plan_storage": "5GB",
+    "basic_plan_cost": 199,
+    "premium_plan_cost": 699,
+    "business_plan_cost": 1299
+  },
+  "storage_features": {
+    "max_storage_capacity": "1TB",
+    "file_size_limit": "250GB",
+    "versioning": true,
+    "backup_support": true
+  },
+  "security": {
+    "encryption": "AES-256",
+    "zero_knowledge_encryption": false,
+    "two_factor_authentication": true
+  },
+  "collaboration": {
+    "file_sharing": true,
+    "real_time_editing": true,
+    "team_collaboration": true
+  },
+  "platform_support": {
+    "web_browser": true,
+    "desktop_app": true,
+    "mobile_app": true,
+    "third_party_integrations": ["Microsoft Office", "Windows", "Teams", "SharePoint"]
+  },
+  "notable_features": [
+    "Интеграция с Microsoft Office",
+    "Встроенная поддержка Windows",
+    "Совместное редактирование",
+    "Персональный хранилище",
+    "Автосохранение Office файлов"
+  ]
+}

@@ -1,0 +1,63 @@
+---
+import { formatDistance } from 'date-fns';
+import { ru } from 'date-fns/locale';
+
+interface Props {
+  article: {
+    slug: string;
+    title: string;
+    excerpt: string;
+    publishDate: string;
+    category: string;
+    readingTime: string;
+    author: {
+      name: string;
+      avatar: string;
+    };
+  };
+}
+
+const { article } = Astro.props;
+
+const formattedDate = formatDistance(
+  new Date(article.publishDate),
+  new Date(),
+  { addSuffix: true, locale: ru }
+);
+---
+
+<article class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+  <div class="p-6">
+    <div class="flex items-center space-x-2 text-sm mb-4">
+      <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-200">
+        {article.category}
+      </span>
+      <span class="text-gray-500 dark:text-gray-400">•</span>
+      <span class="text-gray-500 dark:text-gray-400">{article.readingTime}</span>
+    </div>
+    
+    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+      <a href={`/articles/${article.slug}`} class="hover:text-primary-600 dark:hover:text-primary-400">
+        {article.title}
+      </a>
+    </h3>
+    
+    <p class="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">
+      {article.excerpt}
+    </p>
+    
+    <div class="flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <img
+          src={article.author.avatar}
+          alt={article.author.name}
+          class="h-8 w-8 rounded-full"
+        />
+        <div class="text-sm">
+          <p class="text-gray-900 dark:text-white font-medium">{article.author.name}</p>
+          <p class="text-gray-500 dark:text-gray-400">{formattedDate}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>

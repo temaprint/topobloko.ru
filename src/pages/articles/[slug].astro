@@ -1,0 +1,53 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import readingTime from 'reading-time';
+import { getCollection } from 'astro:content';
+import '../../styles/global.css';
+
+export async function getStaticPaths() {
+  const articles = await getCollection('articles');
+  return articles.map(entry => ({
+    params: { slug: entry.id.replace(/^.*[\\\/]/, '').replace(/\.[^/.]+$/, '') },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const stats = readingTime(entry.body);
+---
+
+<Layout title={`${entry.data.title} - CloudCompare`}>
+  <Header />
+  <main class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12">
+    <article>
+      <div class="article-meta">
+        <div class="flex items-center space-x-2 mb-4">
+          <span class="article-category">
+            {entry.data.category}
+          </span>
+          <span class="text-gray-500 dark:text-gray-400">•</span>
+          <span class="text-gray-500 dark:text-gray-400">{stats.text}</span>
+        </div>
+
+        <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-6">{entry.data.title}</h1>
+
+        <div class="article-author">
+          <img
+            src={entry.data.author.avatar}
+            alt={entry.data.author.name}
+            class="article-author-avatar"
+          />
+          <div class="article-author-info">
+            <p class="article-author-name">{entry.data.author.name}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="article-content">
+        <Content />
+      </div>
+    </article>
+  </main>
+</Layout>

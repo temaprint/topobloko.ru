@@ -1,0 +1,57 @@
+{
+  "name": "Box",
+  "slug": "box",
+  "rating": 4.7,
+  "order": 2,
+  "url": "https://www.box.com",
+  "logo": "/logos/box.svg",
+  "reviews": [
+    {
+      "user": "Андрей",
+      "rating": 5,
+      "comment": "Отличный сервис для бизнеса. Продвинутые инструменты для совместной работы и интеграции.",
+      "date": "2024-02-22"
+    },
+    {
+      "user": "Марина",
+      "rating": 4,
+      "comment": "Надежное корпоративное решение с высоким уровнем безопасности и контроля доступа.",
+      "date": "2024-02-18"
+    }
+  ],
+  "pricing": {
+    "free_plan_storage": "10GB",
+    "basic_plan_cost": 899,
+    "premium_plan_cost": 1499,
+    "business_plan_cost": 2499
+  },
+  "storage_features": {
+    "max_storage_capacity": "Unlimited",
+    "file_size_limit": "15GB",
+    "versioning": true,
+    "backup_support": true
+  },
+  "security": {
+    "encryption": "AES-256",
+    "zero_knowledge_encryption": false,
+    "two_factor_authentication": true
+  },
+  "collaboration": {
+    "file_sharing": true,
+    "real_time_editing": true,
+    "team_collaboration": true
+  },
+  "platform_support": {
+    "web_browser": true,
+    "desktop_app": true,
+    "mobile_app": true,
+    "third_party_integrations": ["Microsoft Office", "Google Workspace", "Slack", "Salesforce"]
+  },
+  "notable_features": [
+    "Корпоративный уровень безопасности",
+    "Расширенное управление правами",
+    "Интеграция с бизнес-приложениями",
+    "Электронные подписи",
+    "Автоматизация рабочих процессов"
+  ]
+}

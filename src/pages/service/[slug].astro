@@ -1,0 +1,135 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import ReviewCard from '../../components/ReviewCard.astro';
+import ReviewForm from '../../components/ReviewForm.astro';
+import { cloudServices } from '../../data/services';
+
+export function getStaticPaths() {
+  return cloudServices.map(service => ({
+    params: { slug: service.slug },
+    props: { service },
+  }));
+}
+
+const { service } = Astro.props;
+
+const formatPrice = (price: number) => {
+  return new Intl.NumberFormat('ru-RU', {
+    style: 'currency',
+    currency: 'RUB',
+    minimumFractionDigits: 0
+  }).format(price);
+};
+---
+
+<Layout title={`${service.name} - Обзор облачного хранилища`}>
+  <Header />
+  <main class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl overflow-hidden">
+      <div class="px-6 py-8">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center">
+            <img src={service.logo} alt={service.name} class="h-12 w-12" />
+            <h1 class="ml-4 text-3xl font-bold text-gray-900 dark:text-white">{service.name}</h1>
+          </div>
+          <div class="flex items-center">
+            <span class="text-2xl text-yellow-400">★</span>
+            <span class="ml-2 text-xl font-semibold text-gray-900 dark:text-white">{service.rating}</span>
+          </div>
+        </div>
+
+        <div class="mt-8 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div class="space-y-4">
+            <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Тарифы</h2>
+            <div class="space-y-2">
+              <p class="flex justify-between text-gray-700 dark:text-gray-300">
+                <span>Бесплатно:</span>
+                <span class="font-medium">{service.pricing.free_plan_storage}</span>
+              </p>
+              <p class="flex justify-between text-gray-700 dark:text-gray-300">
+                <span>Базовый:</span>
+                <span class="font-medium">{formatPrice(service.pricing.basic_plan_cost)}/мес</span>
+              </p>
+              <p class="flex justify-between text-gray-700 dark:text-gray-300">
+                <span>Премиум:</span>
+                <span class="font-medium">{formatPrice(service.pricing.premium_plan_cost)}/мес</span>
+              </p>
+              <p class="flex justify-between text-gray-700 dark:text-gray-300">
+                <span>Бизнес:</span>
+                <span class="font-medium">{formatPrice(service.pricing.business_plan_cost)}/мес</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Характеристики</h2>
+            <div class="space-y-2">
+              <p class="flex justify-between text-gray-700 dark:text-gray-300">
+                <span>Макс. объем:</span>
+                <span class="font-medium">{service.storage_features.max_storage_capacity}</span>
+              </p>
+              <p class="flex justify-between text-gray-700 dark:text-gray-300">
+                <span>Макс. размер файла:</span>
+                <span class="font-medium">{service.storage_features.file_size_limit}</span>
+              </p>
+              <p class="flex justify-between text-gray-700 dark:text-gray-300">
+                <span>Версионирование:</span>
+                <span class="font-medium">{service.storage_features.versioning ? "Да" : "Нет"}</span>
+              </p>
+              <p class="flex justify-between text-gray-700 dark:text-gray-300">
+                <span>Резервное копирование:</span>
+                <span class="font-medium">{service.storage_features.backup_support ? "Да" : "Нет"}</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Безопасность</h2>
+            <div class="space-y-2">
+              <p class="flex justify-between text-gray-700 dark:text-gray-300">
+                <span>Шифрование:</span>
+                <span class="font-medium">{service.security.encryption}</span>
+              </p>
+              <p class="flex justify-between text-gray-700 dark:text-gray-300">
+                <span>Zero-knowledge:</span>
+                <span class="font-medium">{service.security.zero_knowledge_encryption ? "Да" : "Нет"}</span>
+              </p>
+              <p class="flex justify-between text-gray-700 dark:text-gray-300">
+                <span>2FA:</span>
+                <span class="font-medium">{service.security.two_factor_authentication ? "Да" : "Нет"}</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-12">
+          <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-6">Отзывы пользователей</h2>
+          <div class="grid gap-6 md:grid-cols-2">
+            {service.reviews.map(review => (
+              <ReviewCard review={review} />
+            ))}
+          </div>
+          
+          <div class="mt-8">
+            <ReviewForm serviceName={service.name} serviceSlug={service.slug} />
+          </div>
+        </div>
+
+        <div class="mt-8 text-center">
+          <a
+            href={service.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700"
+          >
+            Перейти на сайт {service.name}
+            <svg class="ml-2 -mr-1 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>

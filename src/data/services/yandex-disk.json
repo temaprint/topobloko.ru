@@ -1,0 +1,49 @@
+{
+  "name": "Яндекс.Диск",
+  "slug": "yandex-disk",
+  "rating": 4.5,
+  "order": 1,
+  "url": "https://disk.yandex.ru",
+  "logo": "/logos/disk-yandex.svg",
+  "reviews": [
+    {
+      "user": "Александр",
+      "rating": 5,
+      "comment": "Отличная интеграция с другими сервисами Яндекса",
+      "date": "2024-02-15"
+    }
+  ],
+  "pricing": {
+    "free_plan_storage": "5GB",
+    "basic_plan_cost": 199,
+    "premium_plan_cost": 399,
+    "business_plan_cost": 999
+  },
+  "storage_features": {
+    "max_storage_capacity": "1TB",
+    "file_size_limit": "2GB",
+    "versioning": true,
+    "backup_support": true
+  },
+  "security": {
+    "encryption": "AES-256",
+    "zero_knowledge_encryption": false,
+    "two_factor_authentication": true
+  },
+  "collaboration": {
+    "file_sharing": true,
+    "real_time_editing": true,
+    "team_collaboration": true
+  },
+  "platform_support": {
+    "web_browser": true,
+    "desktop_app": true,
+    "mobile_app": true,
+    "third_party_integrations": ["Microsoft Office", "Google Docs"]
+  },
+  "notable_features": [
+    "Публичные ссылки",
+    "Автозагрузка фото",
+    "Офлайн доступ"
+  ]
+}

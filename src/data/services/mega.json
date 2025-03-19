@@ -1,0 +1,57 @@
+{
+  "name": "MEGA",
+  "slug": "mega",
+  "rating": 4.8,
+  "order": 1,
+  "url": "https://mega.io",
+  "logo": "/logos/mega.svg",
+  "reviews": [
+    {
+      "user": "Игорь",
+      "rating": 5,
+      "comment": "Отличное шифрование и 20 ГБ бесплатно. Лучший выбор для безопасного хранения данных.",
+      "date": "2024-02-23"
+    },
+    {
+      "user": "Светлана",
+      "rating": 5,
+      "comment": "Шифрование end-to-end и удобный интерфейс. Именно то, что нужно для защиты личных данных.",
+      "date": "2024-02-20"
+    }
+  ],
+  "pricing": {
+    "free_plan_storage": "20GB",
+    "basic_plan_cost": 499,
+    "premium_plan_cost": 999,
+    "business_plan_cost": 1499
+  },
+  "storage_features": {
+    "max_storage_capacity": "16TB",
+    "file_size_limit": "Unlimited",
+    "versioning": true,
+    "backup_support": true
+  },
+  "security": {
+    "encryption": "End-to-end encryption",
+    "zero_knowledge_encryption": true,
+    "two_factor_authentication": true
+  },
+  "collaboration": {
+    "file_sharing": true,
+    "real_time_editing": false,
+    "team_collaboration": true
+  },
+  "platform_support": {
+    "web_browser": true,
+    "desktop_app": true,
+    "mobile_app": true,
+    "third_party_integrations": ["MEGAcmd", "MEGAsync"]
+  },
+  "notable_features": [
+    "End-to-end шифрование",
+    "20 ГБ бесплатно",
+    "Защита паролем общего доступа",
+    "Встроенный чат с шифрованием",
+    "Синхронизация в реальном времени"
+  ]
+}

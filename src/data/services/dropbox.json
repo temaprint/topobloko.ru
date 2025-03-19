@@ -1,0 +1,57 @@
+{
+  "name": "Dropbox",
+  "slug": "dropbox",
+  "rating": 4.8,
+  "order": 7,
+  "url": "https://www.dropbox.com",
+  "logo": "/logos/dropbox.svg",
+  "reviews": [
+    {
+      "user": "Виктор",
+      "rating": 5,
+      "comment": "Лучший сервис для совместной работы. Удобный интерфейс и надежная синхронизация.",
+      "date": "2024-02-26"
+    },
+    {
+      "user": "Наталья",
+      "rating": 5,
+      "comment": "Использую уже много лет. Отличная интеграция с разными приложениями и стабильная работа.",
+      "date": "2024-02-23"
+    }
+  ],
+  "pricing": {
+    "free_plan_storage": "2GB",
+    "basic_plan_cost": 599,
+    "premium_plan_cost": 999,
+    "business_plan_cost": 1499
+  },
+  "storage_features": {
+    "max_storage_capacity": "Unlimited",
+    "file_size_limit": "50GB",
+    "versioning": true,
+    "backup_support": true
+  },
+  "security": {
+    "encryption": "AES-256",
+    "zero_knowledge_encryption": false,
+    "two_factor_authentication": true
+  },
+  "collaboration": {
+    "file_sharing": true,
+    "real_time_editing": true,
+    "team_collaboration": true
+  },
+  "platform_support": {
+    "web_browser": true,
+    "desktop_app": true,
+    "mobile_app": true,
+    "third_party_integrations": ["Microsoft Office", "Google Workspace", "Slack", "Zoom", "Adobe"]
+  },
+  "notable_features": [
+    "Умная синхронизация",
+    "Расширенная история версий",
+    "Dropbox Paper для совместной работы",
+    "Интеграция с множеством приложений",
+    "Офлайн доступ к файлам"
+  ]
+}

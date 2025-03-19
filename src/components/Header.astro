@@ -1,0 +1,39 @@
+---
+const navigation = [
+  { name: 'Сравнение', href: '/comparison' },
+  { name: 'Обзоры', href: '/reviews' },
+  { name: 'Статьи', href: '/articles' },
+];
+---
+
+<header class="bg-white dark:bg-gray-800 shadow-sm">
+  <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Top">
+    <div class="flex w-full items-center justify-between py-6">
+      <div class="flex items-center">
+        <a href="/" class="text-2xl font-bold text-primary-600 dark:text-primary-400">
+         ☁️ Лучшее хранилище!
+        </a>
+        <div class="ml-10 hidden space-x-8 lg:block">
+          {navigation.map((link) => (
+            <a
+              href={link.href}
+              class="text-base font-medium text-gray-700 hover:text-primary-600 dark:text-gray-300 dark:hover:text-primary-400"
+            >
+              {link.name}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-wrap justify-center gap-x-6 py-4 lg:hidden">
+      {navigation.map((link) => (
+        <a
+          href={link.href}
+          class="text-base font-medium text-gray-700 hover:text-primary-600 dark:text-gray-300 dark:hover:text-primary-400"
+        >
+          {link.name}
+        </a>
+      ))}
+    </div>
+  </nav>
+</header>
